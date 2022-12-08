@@ -20,6 +20,14 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
-})
+Route.get('/login', 'AuthController.login').as('auth.login')
+Route.post('/login', 'AuthController.showLogin').as('auth.showLogin')
+
+Route.get('/', 'VideosController.home').as('videos.home')
+Route.get('/videos', 'VideosController.index').as('videos.index')
+Route.get('/videos/user', 'VideosController.telaUser').as('videos.user')
+Route.get('/videos/admin', 'VideosController.telaAdmin').as('videos.admin')
+Route.get('/videos/create', 'VideosController.create').as('videos.create')
+Route.post('/videos/store', 'VideosController.store').as('videos.store')
+Route.get('/videos/:id', 'VideosController.show').as('videos.show').where('id', Route.matchers.number())
+Route.get('/videos/:id/delete', 'VideosController.destroy').as('videos.destroy').where('id', Route.matchers.number())

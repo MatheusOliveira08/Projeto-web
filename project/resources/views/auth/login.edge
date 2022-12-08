@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content=" Entre para o SlayDios e faça parte da nova plataforma de vídeos estudantis">
+    <title> Entrar no SlayDios </title>
+    <link rel="stylesheet" type="text/css" href="/css/loginStyle.css">
+</head>
+<body>
+    
+    <div class="main-login">
+        <div class="left-login">
+            <h1> Bem Vindo ao <i> SlayDios </i> <br> A Nova Plataforma de Vídeos Estudantis </h1>
+            <img src="/images/robozinho.svg" class="left-login-image" alt="Imagem Robô">
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1> Entrar no SlayDios </h1>
+                <form action="{{ route('auth.showLogin') }}" method="POST" class="form-login">
+                    <div class="textfield">
+                        <label for="mail"> Email: </label>
+                        <input type="email" name="email" id="mail" placeholder="Email">
+                    </div>
+                    <div class="textfield">
+                        <label for="senha"> Senha: </label>
+                        <input type="password" name="password" id="senha" placeholder="Senha">
+                    </div>
+                    <div class="type-user">
+                        <label for="perfil"> Tipo de perfil: </label>
+                        <select name="perfil">
+                            <option value="user" selected> Usuário </option>
+                            <option value="admin"> Administrador </option>
+                            <!--@each(item in perfil)
+                            <input type="radio" name="perfil"> {{ item }}  
+                                @end -->
+                        </select>
+                    </div>
+                    <button class="btn-login"> ENTRAR </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

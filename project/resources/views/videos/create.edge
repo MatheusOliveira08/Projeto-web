@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Conteúdo do Canal - SlayDios </title>
+    <link rel="stylesheet" type="text/css" href="/css/createVideosStyle.css">
+</head>
+<body>
+
+    <header> <h1>SlayDios</h1> </header>
+
+    <div class="main">
+        <div class="left">
+            <h1> Adicione Novos Vídeos ao <i>Slaydios</i> </h1>
+        </div>
+        <div class="right">
+            <div class="card-create">  
+                <h1> Adicionar Vídeo </h1>  
+                <form action="{{ route('videos.store')}}" method="POST" class="form-create-videos">
+                    <div class="textfield">
+                        <label for="nome"> Título:</label>
+                        <input type="text" id="nome" name="titulo">
+                    </div>
+                    <div class="textfield">
+                        <label for="desc"> Descrição: </label>
+                        <textarea name="description" id="desc" cols="25" rows="1" class="textarea"></textarea>
+                    </div>
+                    <button type="submit" class="btn-create"> Enviar </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

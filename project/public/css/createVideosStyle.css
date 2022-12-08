@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+header {
+    width: 100vw;
+    background: #231d31;
+    display: flex;
+}
+
+header > h1 {
+    color: #00ff88;
+    width: 45vw;
+    text-transform: capitalize;
+    margin: 0px;
+}
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    background: #231d31;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.left {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left > h1 {
+    color: #1aecc5;
+    width: 45vw;
+    text-transform: capitalize;
+    margin: 0px;
+}
+
+.right {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-create {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #352a4e;
+    border-radius: 20px;
+    box-shadow: 0px 10px 50px #00000056;
+}
+
+.card-create > h1 {
+    color: #00ff88;
+    font-weight: 800;
+    margin: 0;
+}
+
+.form-login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.textfield {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.textfield > input {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    background: #514869;
+    color: #ffffff;
+    font-size: 14pt;
+    box-shadow: 0px 10px 50px #00000056;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.textfield > label {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 14pt;
+}
+
+.textarea {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    background: #514869;
+    color: #ffffff;
+    font-size: 14pt;
+    box-shadow: 0px 10px 50px #00000056;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.btn-create {
+    width: 100%;
+    padding: 12px 0px;
+    margin: 25px 0px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-weight: 800;
+    font-size: 13pt;
+    color: #2b134b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: #00ff88;
+    cursor: pointer;
+    box-shadow: 0px 10px 50px -12px #00ff8052;
+    font-family: sans-serif;
+    font-size: 21px;   
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> SlayDios </title>
+</head>
+<body>
+
+    <div class="main">
+        <div class="links">
+            <a href="{{ route('videos.index') }}"> Sair </a>
+        </div>
+        <div class="links">
+            <a href="{{ route('videos.create') }}"> Adicionar Vídeos </a>
+        </div>
+            
+        <h1> Bem Vindo ao SlayDios </h1>
+        <h2> Vídeos Recentes </h2>
+
+        <fieldset>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2"> Módulo 01: Introdução HTML </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @each(item in videos)
+                        <tr>
+                            <td> {{item.titulo}} </td>
+                            <td> <a href="{{ route('videos.show', { id: item.id }) }}"> {{item.description}} </a> </td>
+                            <td> <a href="{{ route('videos.destroy', { id: item.id }) }}"> Excluir </a> </td>
+                        </tr>
+                    @end
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+    
+</body>
+</html>

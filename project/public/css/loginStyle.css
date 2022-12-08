@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.main-login {
+  width: 100vw;
+  height: 100vh;
+  background: #231d31;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.left-login > h1 {
+  color: #1aecc5;
+  width: 45vw;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.left-login-image {
+  width: 35vw;
+}
+
+.right-login {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-login {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #352a4e;
+  border-radius: 20px;
+  box-shadow: 0px 10px 50px #00000056;
+}
+.card-login > h1 {
+  color: #00ff88;
+  font-weight: 800;
+  margin: 0;
+}
+
+.form-login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  
+}
+
+.textfield {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.textfield > input {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  background: #514869;
+  color: #ffffff;
+  font-size: 14pt;
+  box-shadow: 0px 10px 50px #00000056;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.textfield > label {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 14pt;
+}
+
+.textfield > input::placeholder {
+  color: #d0d0d0de;
+}
+
+.type-user {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+
+.type-user > select {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  background: #514869;
+  color: #ffffff;
+  font-size: 14pt;
+  box-shadow: 0px 10px 50px #00000056;
+  outline: none;
+}
+
+.type-user > select > option {
+  background: #514869; 
+}
+
+.type-user > label {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 14pt;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px 0px;
+  margin: 25px 0px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 800;
+  font-size: 13pt;
+  color: #2b134b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #00ff88;
+  cursor: pointer;
+  box-shadow: 0px 10px 50px -12px #00ff8052;
+  font-family: sans-serif;
+  font-size: 21px;
+  
+}
+
