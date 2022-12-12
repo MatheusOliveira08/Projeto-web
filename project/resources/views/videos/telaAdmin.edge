@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> SlayDios </title>
+    <link rel="stylesheet" type="text/css" href="/css/homeStyle.css">
 </head>
 <body>
 
@@ -19,24 +20,26 @@
         <h1> Bem Vindo ao SlayDios </h1>
         <h2> Vídeos Recentes </h2>
 
-        <fieldset>
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2"> Módulo 01: Introdução HTML </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @each(item in videos)
+        <div class="videos">
+            <fieldset>
+                <table>
+                    <thead>
                         <tr>
-                            <td> {{item.titulo}} </td>
-                            <td> <a href="{{ route('videos.show', { id: item.id }) }}"> {{item.description}} </a> </td>
-                            <td> <a href="{{ route('videos.destroy', { id: item.id }) }}"> Excluir </a> </td>
+                            <th colspan="2"> Módulo 01: Introdução HTML </th>
                         </tr>
-                    @end
-                </tbody>
-            </table>
-        </fieldset>
+                    </thead>
+                    <tbody>
+                        @each(item in videos)
+                            <tr>
+                                <td> <a href="{{ route('videos.show', { id: item.id }) }}"> {{item.titulo}} </a> </td>
+                                <td> {{item.description}} </td>
+                            </tr>
+                        @end
+                    </tbody>
+                </table>
+            </fieldset>
+        </div>
+    </div>
     </div>
     
 </body>
