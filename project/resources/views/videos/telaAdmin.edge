@@ -33,6 +33,7 @@
                             <tr>
                                 <td> <a href="{{ route('videos.show', { id: item.id }) }}"> {{item.titulo}} </a> </td>
                                 <td> {{item.description}} </td>
+                                <td> <a href="{{ route('videos.destroy', { id: item.id }) }}"> deletar</a> </td>
                             </tr>
                         @end
                     </tbody>
