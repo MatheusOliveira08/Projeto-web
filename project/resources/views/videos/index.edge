@@ -9,9 +9,11 @@
 </head>
 <body>
     <div class="main">
+        @if(!auth.isLoggedIn)
         <div class="links">
             <a  href="{{ route('auth.login') }}">Fazer Login</a>
         </div>
+        @end
         <h1> Bem Vindo ao SlayDios </h1>
         <h2> Vídeos Recentes: </h2>
         <div class="videos">

@@ -1,4 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { Exception } from '@adonisjs/core/build/standalone'
 
 export default class AuthController {
     /*public static contas = {
@@ -12,12 +13,30 @@ export default class AuthController {
         return view.render('auth/login')
     }
 
-    public async showLogin({ request, response }: HttpContextContract) {
+    /*public async showLogin({ request, response }: HttpContextContract) {
         if(request.input('perfil') == 'admin') {
             return response.redirect().toRoute('videos.admin')
         }
         else{
             return response.redirect().toRoute('videos.user')
         }
+    }*/
+    
+    public async store({ auth, response, request, view }: HttpContextContract) {
+        const email = request.input('email')
+        const password = request.input('password')
+    
+        try {
+          await auth.use('web').attempt(email, password)
+        } catch {
+          throw new Exception('Caguei')
+        }
+    
+        return response.redirect().toRoute('videos.admin')
+    }
+    
+    public async destroy({ auth, response }: HttpContextContract){
+        await auth.use('web').logout()
+        return response.redirect().toRoute('videos.index')
     }
 }
