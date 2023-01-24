@@ -20,12 +20,26 @@
                 <h1> Cadastre-se no SlayDios </h1>
                 <form action="{{ route('auth.create') }}" method="POST" class="form-login">
                     <div class="textfield">
+                        <label for="user"> Nome de Usuário: </label>
+                        <input type="user" name="user" id="user" placeholder="Escolha um nome para você">
+                    </div>
+                    <div class="textfield">
                         <label for="mail"> Email: </label>
-                        <input type="email" name="email" id="mail" placeholder="Email">
+                        <input type="email" name="email" id="mail" placeholder="Use seu melhor e-mail">
                     </div>
                     <div class="textfield">
                         <label for="senha"> Senha: </label>
-                        <input type="password" name="password" id="senha" placeholder="Senha">
+                        <input type="password" name="password" id="senha" placeholder="Crie uma senha forte !">
+                    </div>
+                    <div class="type-user">
+                        <label for="perfil"> Tipo de perfil: </label>
+                        <select name="perfil">
+                            <option value="user" selected> Usuário </option>
+                            <option value="admin"> Administrador </option>
+                            <!--@each(item in perfil)
+                            <input type="radio" name="perfil"> {{ item }}  
+                                @end -->
+                        </select>
                     </div>
                     <button class="btn-login"> Cadastre-se </button>
                 </form>
