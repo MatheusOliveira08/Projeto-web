@@ -27,6 +27,7 @@ Route.get('/logout', 'AuthController.destroy').as('auth.destroy').middleware('au
 Route.get('auth/create', 'AuthController.signup').as('auth.signup')
 Route.post('auth/create', 'AuthController.create').as('auth.create')
 
+
 Route.get('/', 'VideosController.home').as('videos.home')
 Route.get('/videos', 'VideosController.index').as('videos.index')
 Route.get('/videos/:id', 'VideosController.show').as('videos.show').where('id', Route.matchers.number())
@@ -37,4 +38,5 @@ Route.group(() => {
     Route.get('/videos/admin', 'VideosController.telaAdmin').as('videos.admin')
     Route.get('/videos/create', 'VideosController.create').as('videos.create')
     Route.post('/videos/store', 'VideosController.store').as('videos.store')
+    Route.get('auth/profile', 'AuthController.profile').as('auth.profile')
 }).middleware('auth:web')

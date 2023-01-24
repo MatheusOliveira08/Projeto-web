@@ -23,7 +23,7 @@ export default class AuthController {
         }
     }*/
     
-    public async store({ auth, response, request, view }: HttpContextContract) {
+    public async store({ auth, response, request }: HttpContextContract) {
         const email = request.input('email')
         const password = request.input('password')
     
@@ -59,5 +59,11 @@ export default class AuthController {
         
 
         return response.redirect().toRoute('auth.login')
+    }
+
+    public async profile({ view, auth }: HttpContextContract) {
+        const email = auth.name
+        
+        return view.render('auth/profile', )
     }
 }
