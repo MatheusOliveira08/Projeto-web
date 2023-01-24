@@ -30,7 +30,7 @@ export default class AuthController {
         try {
           await auth.use('web').attempt(email, password)
         } catch {
-          throw new Exception('Caguei')
+          throw new Exception('Credenciais erradas, tente novamente')
         }
     
         return response.redirect().toRoute('videos.admin')
