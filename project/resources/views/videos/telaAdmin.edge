@@ -12,6 +12,11 @@
     <div class="main">
         @if(auth.isLoggedIn)
         <div class="links">
+            <a href="{{ route('auth.perfil') }}"> Meu Perfil </a>
+        </div>
+        @end
+        @if(auth.isLoggedIn)
+        <div class="links">
             <a href="{{ route('auth.destroy') }}"> Logout </a>
         </div>
         @end

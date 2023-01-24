@@ -48,11 +48,15 @@ export default class AuthController {
     public async create ({ response, request }: HttpContextContract) {
         const email = request.input('email')
         const password = request.input('password')
+        const user = request.input('user')
 
         await User.create({
             email: email,
-            password: password
+            password: password,
+            user: user
         })
+
+        
 
         return response.redirect().toRoute('auth.login')
     }
