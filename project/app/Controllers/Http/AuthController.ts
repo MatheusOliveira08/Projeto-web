@@ -62,7 +62,7 @@ export default class AuthController {
     }
 
     public async profile({ view }: HttpContextContract) {
-
-        return view.render('auth/profile', )
+        
+        return view.render('auth/profile')
     }
 }
