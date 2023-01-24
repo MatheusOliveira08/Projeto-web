@@ -61,9 +61,8 @@ export default class AuthController {
         return response.redirect().toRoute('auth.login')
     }
 
-    public async profile({ view, auth }: HttpContextContract) {
-        const email = auth.name
-        
+    public async profile({ view }: HttpContextContract) {
+
         return view.render('auth/profile', )
     }
 }
