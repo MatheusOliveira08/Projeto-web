@@ -1,5 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { Exception } from '@adonisjs/core/build/standalone'
+import User from 'App/Models/User'
 
 export default class AuthController {
     /*public static contas = {
@@ -38,5 +39,21 @@ export default class AuthController {
     public async destroy({ auth, response }: HttpContextContract){
         await auth.use('web').logout()
         return response.redirect().toRoute('videos.index')
+    }
+
+    public async signup({ view }: HttpContextContract) {
+        return view.render('auth/create')
+    }
+
+    public async create ({ response, request }: HttpContextContract) {
+        const email = request.input('email')
+        const password = request.input('password')
+
+        await User.create({
+            email: email,
+            password: password
+        })
+
+        return response.redirect().toRoute('auth.login')
     }
 }
