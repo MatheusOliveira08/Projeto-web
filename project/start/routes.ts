@@ -38,5 +38,7 @@ Route.group(() => {
     Route.get('/videos/admin', 'VideosController.telaAdmin').as('videos.admin')
     Route.get('/videos/create', 'VideosController.create').as('videos.create')
     Route.post('/videos/store', 'VideosController.store').as('videos.store')
-    Route.get('auth/profile', 'AuthController.profile').as('auth.profile')
+    Route.get('auth/profile/', 'AuthController.profile').as('auth.profile')
+    Route.get('auth/profile/edit/', 'AuthController.profileEdit').as('auth.edit')
+    Route.post('auth/profile/edit/:id', 'AuthController.update').as('auth.update')
 }).middleware('auth:web')
