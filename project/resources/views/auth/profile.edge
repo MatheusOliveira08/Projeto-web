@@ -11,8 +11,9 @@
 
     <a  href="{{ route('auth.edit') }}">Editar Perfil</a>
     <a  href="{{ route('videos.admin') }}">Voltar para os Vídeos</a>
+    <a  href="{{ route('auth.delete', { id: auth.user.id } ) }}">Excluir Perfil</a>
 
-    <p hidden> id: {{auth.user.id}} </p>
+
     <p> E-mail: {{auth.user.email}} </p>
     <p> Usuário: {{auth.user.user}} </p>
     <p> Senha: Para alterar sua senha, clique em editar perfil </p>

@@ -88,5 +88,11 @@ export default class AuthController {
         await user.save()
         return response.redirect().toRoute('auth.profile')
     }
+
+    public async delete({ params, response }: HttpContextContract) {
+        const user = await User.findOrFail(params.id)
+        await user.delete()
+        return response.redirect().toRoute('videos.index')
+      }
     
 }
