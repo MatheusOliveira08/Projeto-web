@@ -56,7 +56,9 @@ body {
 .card-login > h1 {
   color: #00ff88;
   font-weight: 800;
+  font-size: 30px;
   margin: 0;
+  padding-bottom: 20px;
 }
 
 .form-login {
@@ -151,3 +153,9 @@ body {
   
 }
 
+.linha {
+  width: 100%;
+  border: 1;
+  height: 0px;
+  color:#ccc;
+}

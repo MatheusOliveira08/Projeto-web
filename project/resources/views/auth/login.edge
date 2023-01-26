@@ -13,14 +13,13 @@
                 <h1> Entrar no SlayDios </h1>
                 <form action="{{ route('auth.store'/* auth.showlogin */) }}" method="POST" class="form-login">
                     <div class="textfield">
-                        <label for="mail"> Email: </label>
-                        <input type="email" name="email" id="mail" placeholder="Email">
+                        <input type="text" name="email" id="mail" placeholder="Email ou usuário">
                     </div>
                     <div class="textfield">
-                        <label for="senha"> Senha: </label>
                         <input type="password" name="password" id="senha" placeholder="Senha">
                     </div>
                     <button class="btn-login"> ENTRAR </button>
+                    <hr class="linha">
                 </form>
             </div>
         </div>
