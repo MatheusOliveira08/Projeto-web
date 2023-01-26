@@ -66,33 +66,4 @@ export default class AuthController {
         
         return view.render('auth/profile')
     }
-
-    public async profileEdit({ view }: HttpContextContract) {
-        
-        return view.render('auth/update')
-    }
-
-
-
-    public async update({ response, request, params }: HttpContextContract) {
-        const id = params.id
-        const user = await User.findOrFail(id)
-        const email = request.input('email')
-        const password = request.input('password')
-        const username = request.input('user')
-
-        user.email = email
-        user.user = username
-        user.password = password
-
-        await user.save()
-        return response.redirect().toRoute('auth.profile')
-    }
-
-    public async delete({ params, response }: HttpContextContract) {
-        const user = await User.findOrFail(params.id)
-        await user.delete()
-        return response.redirect().toRoute('videos.index')
-      }
-    
 }
