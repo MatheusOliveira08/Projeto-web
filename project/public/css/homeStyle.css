@@ -38,6 +38,11 @@ body {
     border-radius:8px;
 }
 
+.links > a {
+    text-decoration: none;
+    color: #2b134b;
+}
+
 .videos {
     background-color: #d1d5db;
     padding: 1rem;
