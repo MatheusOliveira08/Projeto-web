@@ -4,11 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Entre para o SlayDios e faça parte da nova plataforma de vídeos estudantis">
+    <meta name="description" content="A nova plataforma de vídeos estudantis">
     <title> SlayDios </title>
-    <link rel="stylesheet" type="text/css" href="/css/homeStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/baseStyle.css">
+    @!section('style')
 </head>
 <body>
-    @!section('body')
+    <div class="main">
+        @!section('header')
+        @!section('body')
+    </div> 
+    <script>
+        function abrirMenu(){
+            document.getElementById('menu').style.width = '250px';
+            document.getElementById('conteudo').style.marginLeft = '250px';
+        }
+        function fecharMenu(){
+            document.getElementById('menu').style.width = '0';
+            document.getElementById('conteudo').style.marginLeft = '0';
+        }
+    </script>
 </body>
 </html>

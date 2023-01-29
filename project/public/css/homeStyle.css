@@ -1,15 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 
-body {
-    margin: 0;
-    font-family: 'Noto Sans', sans-serif;
+.cabecalho {
+    height: 60px;
+    padding: 0px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /*background-color: #222d39;*/
+}  
+
+.cabecalho-start {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
 }
 
-.main {
-    height: 100vh;
-    width: 100%;
-    background:#231d31;
+.ancora-logo {
+    height: 40px;
+}
+
+.cabecalho-logo {
+    height: 40px;
+    padding: 0px;
+}
+
+.cabecalho-menu {
+    margin-right: 1%;
+    display: flex;
+    gap: 20px;
+}
+
+.cabecalho-menu-link {
+    color: aliceblue;
+}
+
+main {
+    padding: 10px;
+    transition: margin-left 0.4s;
 }
 
 .main > h1 {
