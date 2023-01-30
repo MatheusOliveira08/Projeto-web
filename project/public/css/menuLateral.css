@@ -3,18 +3,25 @@
 }
 
 .label-menu-lateral {
-    height: 25px;
+    height: 35px;
+    padding: 0 5px;
+    border-radius: 50px;
+}
+
+.label-menu-lateral:hover {
+    background-color: #5f19af
 }
 
 .img-menu-lateral {
     height: 25px;
+    margin: 5px 0;
     cursor: pointer;
 }
 
 .nav-menu-lateral {
     height: 100%;
     width: 0px;
-    background-color: #231d31;;
+    background-color: #34066a;
     /*background-color: #222d39;*/
     position: fixed;
     top: 0;
@@ -24,6 +31,19 @@
     transition: width 0.3s;
 }
 
+.hr-1 {
+    height: 1px;
+    color: aliceblue;
+    margin-bottom: 10px;
+}
+
+.hr-2 {
+    height: 1px;
+    color: aliceblue;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .menu-lateral-link {
     color: aliceblue;
     font-family:  "Roboto","Arial",sans-serif;
@@ -31,11 +51,22 @@
     line-height: 2rem;
     font-weight: 500;
     display: block;
-    padding: 16px 10px 16px 32px;
+    padding: 14px 10px 14px 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-lateral-link > img {
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .menu-lateral-link:hover {
-    background-color: #334252;;
+    background-color: #5f19af;
 }
 
 

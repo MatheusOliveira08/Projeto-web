@@ -1,32 +1,9 @@
-@layout('Layouts/videosIndex')
+@layout('Layouts/base')
+@set('titulo', 'SlayDios')
 
 @section('style')
     <link rel="stylesheet" type="text/css" href="/css/homeStyle.css"> 
     <link rel="stylesheet" type="text/css" href="/css/menuLateral.css">
-@end
-
-@section('header')  
-    <header id="cabecalho" class="cabecalho">
-        <div class="cabecalho-start">
-            <input class="input-menu-lateral" onclick="abrirMenu()" id="check" type="checkbox">
-            <label class="label-menu-lateral" for="check">
-                <img class="img-menu-lateral" src="images/menu-lateral.png">
-            </label>
-            <a class="ancora-logo" href="{{ route('videos.index')}}"> <img class="cabecalho-logo" src="images/logo.png"> </a>
-        </div>
-        @if(!auth.isLoggedIn)
-            <div class="cabecalho-menu">
-                <a class="cabecalho-menu-link" href="{{ route('auth.login') }}"> Login </a>
-                <a class="cabecalho-menu-link" href="{{ route('auth.create') }}"> Cadastre-se </a>
-            </div>        
-        @end
-    </header>  
-    <nav id="menu" class="nav-menu-lateral">
-        <a class="menu-lateral-link" onclick="fecharMenu()" href="#">&times; Fechar </a>  
-        <a class="menu-lateral-link" href=""> Início </a> 
-        <a class="menu-lateral-link" href=""> Biblioteca </a> 
-        <a class="menu-lateral-link" href=""> Histórico  </a> 
-    </nav> 
 @end
 
 @section('body') 
