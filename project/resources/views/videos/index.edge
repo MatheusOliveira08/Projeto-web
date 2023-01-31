@@ -3,31 +3,83 @@
 
 @section('style')
     <link rel="stylesheet" type="text/css" href="/css/homeStyle.css"> 
+    <link rel="stylesheet" type="text/css" href="/css/indexStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/menuLateral.css">
+@end
+
+@section('header')
+    <header id="cabecalho" class="cabecalho">
+        <div class="cabecalho-start">
+            <input class="input-menu-lateral" onclick="abrirMenu()" id="check" type="checkbox">
+            <label class="label-menu-lateral" for="check">
+                <img class="img-menu-lateral" src="images/menu-lateral.png">
+            </label>
+            <a class="ancora-logo" href="{{ route('videos.index')}}"> <img class="cabecalho-logo" src="images/logo.png"> </a>
+        </div>
+        @if(!auth.isLoggedIn)
+            <div class="cabecalho-menu">
+                <a class="cabecalho-menu-link" href="{{ route('auth.login') }}"> Login </a>
+                <a class="cabecalho-menu-link" href="{{ route('auth.create') }}"> Cadastre-se </a>
+            </div>        
+        @end
+    </header>
+@end
+
+@section('nav')
+    <nav id="menu" class="nav-menu-lateral">
+        <a class="menu-lateral-link" onclick="fecharMenu()" href="#"> <img src="images/icons/close.svg"> Fechar </a>  
+        <hr class="hr-1">
+        <a class="menu-lateral-link" href="{{ route('videos.index')}}"> <img src="images/icons/home.svg"> Início </a> 
+        <a class="menu-lateral-link" href="#"> <img src="images/icons/library.svg"> Biblioteca </a> 
+        <a class="menu-lateral-link" href="#"> <img src="images/icons/historic.svg"> Histórico  </a>
+        <hr class="hr-2">
+    </nav> 
 @end
 
 @section('body') 
     <main id="conteudo">
-        <h1> Bem Vindo ao SlayDios </h1>
-        <h2> Vídeos Recentes: </h2>
-        <div class="videos">
-            <fieldset>
+        <div class="conteudo-texto">
+            <h1> Bem Vindo ao SlayDios </h1>
+        </div>
+        <div class="menu-conteudo-videos">
+            <section class="section-categorias"> 
+                <button type="button"> Tudo </button>
+                <button type="button"> HTML </button>
+                <button type="button"> CSS </button>
+                <button type="button"> JavaScript </button>
+                <button type="button"> NodeJs </button>
+                <button type="button"> AdonisJs </button>
+                <button type="button"> Outros </button>    
+            </section>
+            <!--<fieldset>
                 <table>
                     <thead>
                         <tr>
                             <th colspan="2"> Vídeos :  Introdução a Web </th>
+                            <th colspan="2"> Vídeos :  Introdução a Web </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @each(item in videos)
+                        each(item in videos)
                             <tr>
-                                <td> <a href="{{ route('videos.show', { id: item.id }) }}"> {{item.titulo}} </a> </td>
-                                <td> {{item.description}} </td>
+                                <td> <a href="{ route('videos.show', { id: item.id }) }"> {item.titulo} </a> </td>
+                                <td> {item.description} </td>
                             </tr>
-                        @end
+                        end
                     </tbody>
                 </table>
-            </fieldset>
+            </fieldset>-->
+        </div>
+        <div class="conteudo-videos">
+            <section class="section-conteudo-videos">
+                <article class="container-conteudo-videos">
+                    @each(item in videos)
+                        <a href="{{ route('videos.show', { id: item.id }) }}" class="thumbnail" data-duration="12:24">
+                            <img src="https://i.ytimg.com/vi/GifM_HTXf9Y/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCRPag58C6LftwCxnL65BTiG8Hc4g">
+                        </a>
+                    @end
+                </article>   
+            </section>
         </div>  
     </main>  
 @end
