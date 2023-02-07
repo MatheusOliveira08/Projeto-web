@@ -73,6 +73,14 @@ export default class VideosController {
         return view.render('videos/show', { video: video })
     }
 
+    public async showLogged ({ view, params }: HttpContextContract){
+        const id = params.id
+        //const video = VideosController.videos.values[id]
+        const video = await Video.findOrFail(id)
+
+        return view.render('videos/showLogged', { video: video })
+    }
+
     public async destroy({ params, response }: HttpContextContract) {
         const video = await Video.findOrFail(params.id)
         await video.delete()

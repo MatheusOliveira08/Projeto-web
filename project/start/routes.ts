@@ -31,6 +31,7 @@ Route.post('auth/create', 'AuthController.create').as('auth.create')
 Route.get('/', 'VideosController.home').as('videos.home')
 Route.get('/videos', 'VideosController.index').as('videos.index')
 Route.get('/videos/:id', 'VideosController.show').as('videos.show').where('id', Route.matchers.number())
+Route.get('/videosLog/:id', 'VideosController.showLogged').as('videos.showLogged').where('id', Route.matchers.number())
 Route.get('/videos/:id/delete', 'VideosController.destroy').as('videos.destroy').where('id', Route.matchers.number())
 
 Route.group(() => {
