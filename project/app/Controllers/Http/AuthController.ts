@@ -1,3 +1,4 @@
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { Exception } from '@adonisjs/core/build/standalone'
 import User from 'App/Models/User'
@@ -46,6 +47,20 @@ export default class AuthController {
     }
 
     public async create ({ response, request }: HttpContextContract) {
+
+        /*const userSchema = schema.create({
+            user: schema.string({ trim: true }, [
+                rules.minLength(3),
+                rules.maxLength(20),
+                rules.required(),
+                rules.regex(/^[a-zA-Z0-9-_]+$/),
+                rules.unique({ table: 'users', column: 'user' })
+            ]),
+            email: schema.string({ trim: true }, [rules.unique({ table: 'users', column: 'email' }), rules.email(), rules.required()]),
+            password: schema.string({ trim: true }, [rules.minLength(6), rules.maxLength(20), rules.required()]),
+        })*/
+
+
         const email = request.input('email')
         const password = request.input('password')
         const user = request.input('user')
