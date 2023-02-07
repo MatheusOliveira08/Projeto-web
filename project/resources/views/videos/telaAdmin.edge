@@ -90,7 +90,7 @@
             <section class="section-conteudo-videos">
                 <article class="container-conteudo-videos">
                     @each(item in videos)
-                        <a id = "video" onclick="enviarHist()" href="{{ route('videos.showLogged', { id: item.id }) }}" class="thumbnail" data-duration="12:24">
+                        <a href="{{ route('videos.showLogged', { id: item.id }) }}" class="thumbnail" data-duration="12:24">
                             <img src="https://i.ytimg.com/vi/GifM_HTXf9Y/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCRPag58C6LftwCxnL65BTiG8Hc4g">
                         </a>
                         <td> {{item.description}} </td>
