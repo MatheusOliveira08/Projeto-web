@@ -87,5 +87,10 @@ export default class VideosController {
         return response.redirect().toRoute('videos.admin')
       }
 
+    public async hist({ view, params }: HttpContextContract){
+    
+
+        return view.render ('videos/hist')
+    } 
 
 }

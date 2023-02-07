@@ -32,7 +32,7 @@
         <hr class="hr-1">
         <a class="menu-lateral-link" href="{{ route('videos.admin')}}"> <img src="images/icons/home.svg"> Início </a> 
         <a class="menu-lateral-link" href="#"> <img src="images/icons/library.svg"> Biblioteca </a> 
-        <a class="menu-lateral-link" href="#"> <img src="images/icons/historic.svg"> Histórico  </a>
+        <a class="menu-lateral-link" href="{{ route('videos.hist')}}"> <img src="images/icons/historic.svg"> Histórico  </a>
         <hr class="hr-2">
     </nav> 
 @end
@@ -90,7 +90,7 @@
             <section class="section-conteudo-videos">
                 <article class="container-conteudo-videos">
                     @each(item in videos)
-                        <a href="{{ route('videos.showLogged', { id: item.id }) }}" class="thumbnail" data-duration="12:24">
+                        <a id = "video" onclick="enviarHist()" href="{{ route('videos.showLogged', { id: item.id }) }}" class="thumbnail" data-duration="12:24">
                             <img src="https://i.ytimg.com/vi/GifM_HTXf9Y/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCRPag58C6LftwCxnL65BTiG8Hc4g">
                         </a>
                         <td> {{item.description}} </td>
