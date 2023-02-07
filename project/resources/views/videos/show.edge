@@ -9,7 +9,7 @@
 <body>
 
     <div class="main">
-        <h1> Vídeos </h1>
+        <h1> Vídeos </h1>   
         <div class="show">
             <label> Título:</label>
             {{ video.titulo }}
@@ -18,7 +18,10 @@
             <label> Descrição:</label>
             {{ video.description }}
         </div>
-
+        <p></p> 
+        <div class="show">
+            <iframe width="560" height="315" src="{{video.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>  
     </div>
     
 </body>

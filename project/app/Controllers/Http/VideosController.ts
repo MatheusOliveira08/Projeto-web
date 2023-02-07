@@ -43,6 +43,7 @@ export default class VideosController {
     public async store ({ response, request }: HttpContextContract) {
         const titulo = request.input('titulo')
         const description = request.input('description')
+        const link = request.input('link')
 
         /*VideosController.videos.size += 1
 
@@ -56,7 +57,8 @@ export default class VideosController {
 
         await Video.create({
             titulo: titulo,
-            description: description
+            description: description,
+            link: link
         })
 
 
