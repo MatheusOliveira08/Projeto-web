@@ -9,14 +9,14 @@
     gap: 10px;
 }
 
-.cabecalho-menu > img {
+.user-img {
     cursor: pointer;
     border-radius: 50%;
     padding: 8px;
     width: 40px;
 }
 
-.cabecalho-menu:hover > img {
+.user-img:hover {
     background-color: #5f19af
 }
 
