@@ -3,8 +3,8 @@
 
 @section('style')
     <link rel="stylesheet" type="text/css" href="/css/homeStyle.css"> 
-    <link rel="stylesheet" type="text/css" href="/css/adminStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/menuLateral.css">
+    <link rel="stylesheet" type="text/css" href="/css/menuDropStyle.css">
 @end
 
 @section('header')
@@ -18,12 +18,41 @@
         </div>
         @if(auth.isLoggedIn)
             <div class="cabecalho-menu">
-                <a class="cabecalho-menu-link" href="{{ route('auth.profile') }}"> <img src="images/icons/user.svg"> </a>
-                <a class="cabecalho-menu-link" href="{{ route('auth.destroy') }}"> Logout </a>
-                <a class="cabecalho-menu-link" href="{{ route('videos.create') }}"> Adicionar Vídeos </a>
+                <img onclick="openMenu()" src="images/icons/user.svg">
+                <div id="subMenu" class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <h3>{{auth.user.user}}</h3>
+                            <!--<a class="cabecalho-menu-link" href="{ route('auth.destroy') }}"> Logout </a>-->
+                            <!--<a class="cabecalho-menu-link" href="{ route('videos.create') }}"> Adicionar Vídeos </a>-->
+                        </div>
+                        <hr>
+                        <a class="sub-menu-link" href="{{ route('auth.profile') }}"> 
+                            <img src="images/icons/upload.svg">
+                            <p>Editar Perfil</p>
+                            <span>></span>
+                        </a>
+                        <a class="sub-menu-link" href="{{ route('videos.create') }}"> 
+                            <img src="images/icons/editProfile.svg">
+                            <p>Aicionar Vídeos</p>
+                            <span>></span>
+                        </a>
+                        <a class="sub-menu-link" href="{{ route('auth.destroy') }}"> 
+                            <img src="images/icons/logout.svg">
+                            <p>Sair</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
             </div>        
         @end
     </header>
+    <script>
+        let subMenu = document.getElementById('subMenu');
+        function openMenu() {
+            subMenu.classList.toggle("open-menu");
+        }
+    </script>
 @end
 
 @section('nav')
