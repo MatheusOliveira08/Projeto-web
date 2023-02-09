@@ -48,27 +48,44 @@ export default class AuthController {
 
     public async create ({ response, request }: HttpContextContract) {
 
-        /*const userSchema = schema.create({
+        const userSchema = schema.create({
             user: schema.string({ trim: true }, [
                 rules.minLength(3),
                 rules.maxLength(20),
-                rules.required(),
                 rules.regex(/^[a-zA-Z0-9-_]+$/),
                 rules.unique({ table: 'users', column: 'user' })
             ]),
-            email: schema.string({ trim: true }, [rules.unique({ table: 'users', column: 'email' }), rules.email(), rules.required()]),
-            password: schema.string({ trim: true }, [rules.minLength(6), rules.maxLength(20), rules.required()]),
-        })*/
+            email: schema.string({ trim: true }, [rules.unique({ table: 'users', column: 'email' }), /*rules.email()*/]),
+            password: schema.string({ trim: true }, [rules.minLength(6), rules.maxLength(20)]),
+        })
 
+        const validatedData = await request.validate({ 
+            schema: userSchema, 
+            messages:{
+                'user.required': 'O campo Nome de Usuário é obrigatório!',
+                'user.minLength': 'O campo Nome de Usuário deve ter no mínimo 3 caracteres!',
+                'user.maxLength': 'O campo Nome de Usuário deve ter no máximo 20 caracteres!',
+                'user.regex': 'O campo Nome de Usuário deve conter apenas letras, números, hífen e underline!',
+                'user.unique': 'O campo Nome de Usuário já está em uso!',
 
-        const email = request.input('email')
+                'email.required': 'O campo Email é obrigatório!',
+                'email.email': 'O campo Email deve ser um email válido!',
+                'email.unique': 'O campo Email já está em uso!',
+
+                'password.required': 'O campo Senha é obrigatório!',
+                'password.minLength': 'O campo Senha deve ter no mínimo 6 caracteres!',
+                'password.maxLength': 'O campo Senha deve ter no máximo 20 caracteres!',
+            }
+        })
+
+        /*const email = request.input('email')
         const password = request.input('password')
-        const user = request.input('user')
+        const user = request.input('user')*/
 
         await User.create({
-            email: email,
-            password: password,
-            user: user
+            email: validatedData.email,
+            password: validatedData.password,
+            user: validatedData.user
         })
 
         

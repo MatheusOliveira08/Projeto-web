@@ -21,14 +21,29 @@
                     <div class="textfield">
                         <label for="nome"> Título:</label>
                         <input type="text" id="nome" name="titulo">
+                            @if(flashMessages.has('errors.titulo'))
+                            <p style="color:darkred ; background-color:aliceblue; padding:2px; border-radius: 8px;" class = "help is-danger">
+                                {{ flashMessages.get('errors.titulo') }}
+                            </p>
+                            @endif
                     </div>
                     <div class="textfield">
                         <label for="desc"> Descrição: </label>
                         <textarea name="description" id="desc" cols="25" rows="1" class="textarea"></textarea>
+                            @if(flashMessages.has('errors.description'))
+                            <p style="color:darkred ; background-color:aliceblue; padding:2px; border-radius: 8px;" class = "help is-danger">
+                                {{ flashMessages.get('errors.description') }}
+                            </p>
+                            @endif
                     </div>
                     <div class="textfield">
                         <label for="link"> Link: </label>
                         <input type="text" id="link" name="link">
+                            @if(flashMessages.has('errors.link'))
+                            <p style="color:darkred ; background-color:aliceblue; padding:2px; border-radius: 8px;" class = "help is-danger">
+                                {{ flashMessages.get('errors.link') }}
+                            </p>
+                            @endif
                     </div>
                     <button type="submit" class="btn-create"> Enviar </button>
                 </form>

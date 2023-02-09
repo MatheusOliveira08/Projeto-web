@@ -1,5 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Video from 'App/Models/Video'
+import { schema, rules } from '@ioc:Adonis/Core/Validator'
 
 export default class VideosController {
     /*public static videos = {
@@ -41,19 +42,44 @@ export default class VideosController {
     }
 
     public async store ({ response, request }: HttpContextContract) {
-        const titulo = request.input('titulo')
-        const description = request.input('description')
-        const link = request.input('link')
 
-        /*VideosController.videos.size += 1
+        const videoSchema = schema.create({
+            titulo: schema.string({ trim: true }, [
+                rules.minLength(3),
+                rules.maxLength(30),
+                rules.regex(/^[a-zA-Z0-9-_]+$/),
+                rules.unique({ table: 'videos', column: 'titulo' })
+            ]),
+            description: schema.string({ trim: true }, [ 
+                rules.minLength(1),
+                rules.maxLength(50),
+                rules.regex(/^[a-zA-Z0-9-_]+$/)]),
+            link: schema.string({ trim: true }, [/*rules.regex(/^[a-zA-Z0-9-_]+$/)*/]),
+        })
 
-        const id = VideosController.videos.size
+        const validatedData = await request.validate({ 
+            schema: videoSchema, 
+            messages:{
+                'titulo.required': 'O campo titulo é obrigatório',
+                'titulo.minLength': 'O campo titulo deve ter no mínimo 3 caracteres',
+                'titulo.maxLength': 'O campo titulo deve ter no máximo 30 caracteres',
+                'titulo.regex': 'O campo titulo deve conter apenas letras, números, hífen e underline',
+                'titulo.unique': 'O campo titulo deve ser único',
 
-        VideosController.videos.values[id] = {
-            id: id,
-            video: video,
-            description: description,
-        }*/
+                'description.required': 'O campo descrição é obrigatório',
+                'description.minLength': 'O campo descrição deve ter no mínimo 1 caracteres',
+                'description.maxLength': 'O campo descrição deve ter no máximo 50 caracteres',
+                'description.regex': 'O campo descrição deve conter apenas letras, números, hífen e underline',
+
+                'link.required': 'O campo link é obrigatório',
+                'link.regex': 'O campo link deve ser do youtube e deve conter embed',
+            }
+        })
+
+
+        const titulo = validatedData.titulo
+        const description = validatedData.description
+        const link = validatedData.link
 
         await Video.create({
             titulo: titulo,
