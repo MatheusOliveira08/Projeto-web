@@ -1,45 +1,11 @@
 @layout('Layouts/base')
 @set('titulo', 'SlayDios')
 
-@section('style')
-    <link rel="stylesheet" type="text/css" href="/css/homeStyle.css"> 
-    <link rel="stylesheet" type="text/css" href="/css/adminStyle.css">
-    <link rel="stylesheet" type="text/css" href="/css/menuLateral.css">
-@end
-
-@section('header')
-    <header id="cabecalho" class="cabecalho">
-        <div class="cabecalho-start">
-            <input class="input-menu-lateral" onclick="abrirMenu()" id="check" type="checkbox">
-            <label class="label-menu-lateral" for="check">
-                <img class="img-menu-lateral" src="images/menu-lateral.png">
-            </label>
-            <a class="ancora-logo" href="{{ route('videos.admin')}}"> <img class="cabecalho-logo" src="images/logo.png"> </a>
-        </div>
-        @if(auth.isLoggedIn)
-            <div class="cabecalho-menu">
-                <a class="cabecalho-menu-link" href="{{ route('auth.profile') }}"> <img src="images/icons/user.svg"> </a>
-                <a class="cabecalho-menu-link" href="{{ route('auth.destroy') }}"> Logout </a>
-                <a class="cabecalho-menu-link" href="{{ route('videos.create') }}"> Adicionar Vídeos </a>
-            </div>        
-        @end
-    </header>
-@end
-
-@section('nav')
-    <nav id="menu" class="nav-menu-lateral">
-        <a class="menu-lateral-link" onclick="fecharMenu()" href="#"> <img src="images/icons/close.svg"> Fechar </a>  
-        <hr class="hr-1">
-        <a class="menu-lateral-link" href="{{ route('videos.admin')}}"> <img src="images/icons/home.svg"> Início </a> 
-        <a class="menu-lateral-link" href="#"> <img src="images/icons/library.svg"> Biblioteca </a> 
-        <a class="menu-lateral-link" href="{{ route('videos.hist')}}"> <img src="images/icons/historic.svg"> Histórico  </a>
-        <hr class="hr-2">
-    </nav> 
-@end
-
 @section('body')
-
-<div id='historico'>
-
-</div>
+    <div>
+        @each(item in video_histories)
+            <a href="{{ route('videos.showLogged', { id: item.video_id }) }}">{{item.video_id}}</a>
+            <td> {{item.created_at}} </td>
+        @end
+    </div>
 @endsection

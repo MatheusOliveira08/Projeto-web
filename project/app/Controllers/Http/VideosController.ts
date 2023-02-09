@@ -1,6 +1,8 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Video from 'App/Models/Video'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
+import VideoHistory from 'App/Models/VideoHistory'
+import User from 'App/Models/User'
 
 export default class VideosController {
     /*public static videos = {
@@ -99,10 +101,16 @@ export default class VideosController {
         return view.render('videos/show', { video: video })
     }
 
-    public async showLogged ({ view, params }: HttpContextContract){
+    public async showLogged ({ view, params, auth }: HttpContextContract){
         const id = params.id
         //const video = VideosController.videos.values[id]
         const video = await Video.findOrFail(id)
+        const user = auth.user?.id
+
+        await VideoHistory.create({
+            userId: user,
+            videoId: id
+        })
 
         return view.render('videos/showLogged', { video: video })
     }
@@ -113,8 +121,7 @@ export default class VideosController {
         return response.redirect().toRoute('videos.admin')
       }
 
-    public async hist({ view, params }: HttpContextContract){
-    
+    public async hist({ view }: HttpContextContract){
 
         return view.render ('videos/hist')
     } 
