@@ -70,9 +70,9 @@
     <h1 style="color:aliceblue "> Histórico de videos </h1>
     <div style="color:aliceblue">
         @each(item in history)
-        Video:  <a href="{{ route('videos.showLogged', { id: item.videoId }) }}">{{item.videoId}} </a> acessado pelo user {{item.userId}} 
-        na data: {{item.createdAt}} 
-        <p></p>
+            Video:  <a href="{{ route('videos.showLogged', { id: item.videoId }) }}">{{item.videoId}} </a> acessado pelo user {{item.userId}} 
+            na data: {{item.createdAt}} 
+            <p></p>
         @endeach
     </div>
 @endsection

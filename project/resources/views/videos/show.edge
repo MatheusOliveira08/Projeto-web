@@ -16,9 +16,9 @@
         <div class="cabecalho-start">
             <input class="input-menu-lateral" onclick="abrirMenu()" id="check" type="checkbox">
             <label class="label-menu-lateral" for="check">
-                <img class="img-menu-lateral" src="images/menu-lateral.png">
+                <img class="img-menu-lateral" src="{{ asset('assets/images/icons/menu.svg') }}">
             </label>
-            <a class="ancora-logo" href="{{ route('videos.index')}}"> <img class="cabecalho-logo" src="images/logo.png"> </a>
+            <a class="ancora-logo" href="{{ route('videos.index')}}"> <img class="cabecalho-logo" src="{{ asset('assets/images/logo.png') }}"> </a>
         </div>
         @if(!auth.isLoggedIn)
             <div class="cabecalho-menu">
@@ -28,15 +28,17 @@
         @end
     </header>
     <nav id="menu" class="nav-menu-lateral">
-        <a class="menu-lateral-link" onclick="fecharMenu()" href="#"> <img src="images/icons/close.svg"> Fechar </a>  
+        <a class="menu-lateral-link" onclick="fecharMenu()" href="#"> <img src="{{ asset('assets/images/icons/close.svg') }}"> Fechar </a>  
         <hr class="hr-1">
-        <a class="menu-lateral-link" href="{{ route('videos.index')}}"> <img src="images/icons/home.svg"> Início </a> 
-        <a class="menu-lateral-link" href="#"> <img src="images/icons/library.svg"> Biblioteca </a> 
-        <a class="menu-lateral-link" href="#"> <img src="images/icons/historic.svg"> Histórico  </a>
+        <a class="menu-lateral-link" href="{{ route('videos.index')}}"> <img src="{{ asset('assets/images/icons/home.svg') }}"> Início </a> 
+        <a class="menu-lateral-link" href="#"> <img src="{{ asset('assets/images/icons/library.svg') }}"> Biblioteca </a> 
+        <a class="menu-lateral-link" href="#"> <img src="{{ asset('assets/images/icons/historic.svg') }}"> Histórico  </a>
         <hr class="hr-2">
     </nav>
     <div id="conteudo" class="main">
-        <h1> Vídeos </h1>   
+        <div class="show">
+            <iframe width="560" height="315" src="{{video.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>   
         <div class="show">
             <label> Título:</label>
             {{ video.titulo }}
@@ -45,19 +47,14 @@
             <label> Descrição:</label>
             {{ video.description }}
         </div>
-        <p></p> 
-        <div class="show">
-            <iframe width="560" height="315" src="{{video.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>  
+        <p></p>  
     </div>
     <script>
         function abrirMenu(){
             document.getElementById('menu').style.width = '250px';
-            document.getElementById('conteudo').style.marginLeft = '250px';
         }
         function fecharMenu(){
             document.getElementById('menu').style.width = '0';
-            document.getElementById('conteudo').style.marginLeft = '0';
         }
     </script>  
 </body>

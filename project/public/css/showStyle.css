@@ -18,3 +18,13 @@
 .cabecalho-menu-link:hover {
     background-color: #490993;
 }
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.show {
+    color: aliceblue;
+}

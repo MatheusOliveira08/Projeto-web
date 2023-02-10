@@ -1,4 +1,19 @@
 {
   "assets/app.css": "http://localhost:8080/assets/app.css",
-  "assets/app.js": "http://localhost:8080/assets/app.js"
+  "assets/app.js": "http://localhost:8080/assets/app.js",
+  "assets/images/logo.png": "http://localhost:8080/assets/images/logo.51154320.png",
+  "assets/images/menu-lateral.png": "http://localhost:8080/assets/images/menu-lateral.2f8dcfa7.png",
+  "assets/images/animations/robo-cadastro.svg": "http://localhost:8080/assets/images/animations/robo-cadastro.3db0ec8c.svg",
+  "assets/images/animations/robozinho.svg": "http://localhost:8080/assets/images/animations/robozinho.99eee038.svg",
+  "assets/images/icons/editProfile.svg": "http://localhost:8080/assets/images/icons/editProfile.b029894a.svg",
+  "assets/images/icons/home.svg": "http://localhost:8080/assets/images/icons/home.7375371e.svg",
+  "assets/images/icons/library.svg": "http://localhost:8080/assets/images/icons/library.c2032a3c.svg",
+  "assets/images/icons/user.svg": "http://localhost:8080/assets/images/icons/user.27c0852a.svg",
+  "assets/images/icons/logout.svg": "http://localhost:8080/assets/images/icons/logout.e4bf0c02.svg",
+  "assets/images/icons/upload.svg": "http://localhost:8080/assets/images/icons/upload.e080c1f5.svg",
+  "assets/images/icons/close.svg": "http://localhost:8080/assets/images/icons/close.fd23750d.svg",
+  "assets/images/icons/historic.svg": "http://localhost:8080/assets/images/icons/historic.c4b460f8.svg",
+  "assets/images/img/logo.png": "http://localhost:8080/assets/images/img/logo.51154320.png",
+  "assets/images/img/menu-lateral.png": "http://localhost:8080/assets/images/img/menu-lateral.2f8dcfa7.png",
+  "assets/images/icons/menu.svg": "http://localhost:8080/assets/images/icons/menu.8e12d383.svg"
 }

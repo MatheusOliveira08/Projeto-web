@@ -12,13 +12,13 @@
         <div class="cabecalho-start">
             <input class="input-menu-lateral" onclick="abrirMenu()" id="check" type="checkbox">
             <label class="label-menu-lateral" for="check">
-                <img class="img-menu-lateral" src="images/menu-lateral.png">
+                <img class="img-menu-lateral" src="{{ asset('assets/images/icons/menu.svg') }}">
             </label>
-            <a class="ancora-logo-adm" href="{{ route('videos.admin')}}"> <img class="cabecalho-logo" src="images/logo.png"> </a>
+            <a class="ancora-logo" href="{{ route('videos.admin')}}"> <img class="cabecalho-logo" src="{{ asset('assets/images/logo.png') }}"> </a>
         </div>
         @if(auth.isLoggedIn)
             <div class="cabecalho-menu">
-                <img class="user-img" onclick="openMenu()" src="images/icons/user.svg">
+                <img class="user-img" onclick="openMenu()" src="{{ asset('assets/images/icons/user.svg') }}"> 
                 <div id="subMenu" class="sub-menu-wrap">
                     <div class="sub-menu">
                         <div class="user-info">
@@ -28,17 +28,17 @@
                         </div>
                         <hr>
                         <a class="sub-menu-link" href="{{ route('auth.profile') }}"> 
-                            <img src="images/icons/upload.svg">
+                            <img src="{{ asset('assets/images/icons/editProfile.svg') }}">  
                             <p>Editar Perfil</p>
                             <span>></span>
                         </a>
                         <a class="sub-menu-link" href="{{ route('videos.create') }}"> 
-                            <img src="images/icons/editProfile.svg">
+                            <img src="{{ asset('assets/images/icons/upload.svg') }}">
                             <p>Adicionar Vídeos</p>
                             <span>></span>
                         </a>
                         <a class="sub-menu-link" href="{{ route('auth.destroy') }}"> 
-                            <img src="images/icons/logout.svg">
+                            <img src="{{ asset('assets/images/icons/logout.svg') }}">
                             <p>Sair</p>
                             <span>></span>
                         </a>
@@ -57,11 +57,11 @@
 
 @section('nav')
     <nav id="menu" class="nav-menu-lateral">
-        <a class="menu-lateral-link" onclick="fecharMenu()" href="#"> <img src="images/icons/close.svg"> Fechar </a>  
+        <a class="menu-lateral-link" onclick="fecharMenu()" href="#"> <img src="{{ asset('assets/images/icons/close.svg') }}"> Fechar </a>  
         <hr class="hr-1">
-        <a class="menu-lateral-link" href="{{ route('videos.admin')}}"> <img src="images/icons/home.svg"> Início </a> 
-        <a class="menu-lateral-link" href="#"> <img src="images/icons/library.svg"> Biblioteca </a> 
-        <a class="menu-lateral-link" href="{{ route('videos.hist')}}"> <img src="images/icons/historic.svg"> Histórico  </a>
+        <a class="menu-lateral-link" href="{{ route('videos.admin')}}"> <img src="{{ asset('assets/images/icons/home.svg') }}"> Início </a> 
+        <a class="menu-lateral-link" href="#"> <img src="{{ asset('assets/images/icons/library.svg') }}"> Biblioteca </a> 
+        <a class="menu-lateral-link" href="{{ route('videos.hist')}}"> <img src="{{ asset('assets/images/icons/historic.svg') }}"> Histórico  </a>
         <hr class="hr-2">
     </nav> 
 @end

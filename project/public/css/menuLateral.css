@@ -6,6 +6,7 @@
     height: 35px;
     padding: 0 5px;
     border-radius: 50px;
+    cursor: pointer;
 }
 
 .label-menu-lateral:hover {
