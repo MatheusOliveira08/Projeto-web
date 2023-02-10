@@ -5,14 +5,6 @@ import VideoHistory from 'App/Models/VideoHistory'
 import User from 'App/Models/User'
 
 export default class VideosController {
-    /*public static videos = {
-        size: 3,
-        values: {
-            1: {id: 1, titulo: 'Aula 01:', description: 'Introdução Web'},
-            2: {id: 2, titulo: 'Aula 02:', description: 'Introdução ao HTTP'},
-            3: {id: 3, titulo: 'Aula 03:', description: 'Introdução HTML'}
-        }
-    }*/
 
     public async home({ response }: HttpContextContract){
         return response.redirect().toRoute('videos.index')
@@ -49,13 +41,13 @@ export default class VideosController {
             titulo: schema.string({ trim: true }, [
                 rules.minLength(3),
                 rules.maxLength(30),
-                rules.regex(/^[a-zA-Z0-9-_]+$/),
+                rules.regex(/^[a-zA-Z0-9-_ ]+$/),
                 rules.unique({ table: 'videos', column: 'titulo' })
             ]),
             description: schema.string({ trim: true }, [ 
                 rules.minLength(1),
                 rules.maxLength(50),
-                rules.regex(/^[a-zA-Z0-9-_]+$/)]),
+                rules.regex(/^[a-zA-Z0-9-_ ]+$/)]),
             link: schema.string({ trim: true }, [/*rules.regex(/^[a-zA-Z0-9-_]+$/)*/]),
         })
 
@@ -81,7 +73,7 @@ export default class VideosController {
 
         const titulo = validatedData.titulo
         const description = validatedData.description
-        const link = validatedData.link
+        const link = 'https://www.youtube.com/embed/' + validatedData.link.substring(32, 90)
 
         await Video.create({
             titulo: titulo,
@@ -121,9 +113,12 @@ export default class VideosController {
         return response.redirect().toRoute('videos.admin')
       }
 
-    public async hist({ view }: HttpContextContract){
+    public async hist({ view , auth}: HttpContextContract){
+        const history = await VideoHistory.all() 
+        //const user = auth.user?.id
+        //const videos = await Video.all()
 
-        return view.render ('videos/hist')
+        return view.render('videos/history', { history: history })
     } 
 
 }

@@ -43,5 +43,5 @@ Route.group(() => {
     Route.get('auth/profile/edit/', 'AuthController.profileEdit').as('auth.edit')
     Route.post('auth/profile/edit/:id', 'AuthController.update').as('auth.update')
     Route.get('/auth/:id/delete', 'AuthController.delete').as('auth.delete')
-    Route.get('/videos/hist', 'VideosController.hist').as('videos.hist')
+    Route.get('/videos/history', 'VideosController.hist').as('videos.hist') 
 }).middleware('auth:web')
