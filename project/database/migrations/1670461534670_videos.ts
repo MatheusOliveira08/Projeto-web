@@ -9,6 +9,9 @@ export default class extends BaseSchema {
       table.string('titulo').notNullable()
       table.string('description').notNullable()
       table.string('link').notNullable()
+      table.integer('views')
+      table.integer('likes')
+      table.integer('dislikes')
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */

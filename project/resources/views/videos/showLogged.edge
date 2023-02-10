@@ -37,28 +37,25 @@
         <hr class="hr-2">
     </nav>
     <div id="conteudo" class="main">
-        <h1> Vídeos </h1>   
-        <div class="show">
-            <label> Título:</label>
-            {{ video.titulo }}
-        </div>
-        <div class="show">
-            <label> Descrição:</label>
-            {{ video.description }}
-        </div>
-        <p></p> 
-        <div class="show">
-            <iframe width="560" height="315" src="{{video.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>  
+        <div class="container">
+            <div class="video">
+                <iframe src="{{video.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>   
+            <div class="show">
+                <h2 class="text">{{ video.titulo }}</h2>
+                <h3 class="text">{{ video.description }}</h3>
+            </div>
+        </div> 
     </div>
     <script>
         function abrirMenu(){
             document.getElementById('menu').style.width = '250px';
-            document.getElementById('conteudo').style.marginLeft = '250px';
         }
         function fecharMenu(){
             document.getElementById('menu').style.width = '0';
-            document.getElementById('conteudo').style.marginLeft = '0';
+        }
+        function like(){
+            {{video.likes}} += 1
         }
     </script>  
 </body>

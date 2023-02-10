@@ -62,16 +62,13 @@ main {
     border-radius: 5px;
 }
 
-/*.conteudo-videos > fieldset {
-    border: none;
+.conteudo-videos {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #171717;
+    padding: 15px;
+    border-radius: 5px;
 }
-
-.conteudo-videos > fieldset table {
-    width: 33%;
-    background-color: #00ff88;
-}*/
 
 .section-categorias {
     display: flex;
@@ -88,15 +85,6 @@ main {
     padding: 5px 13px;
     border-radius: 8px;
     cursor: pointer;
-}
-
-.conteudo-videos {
-    display: flex;
-    flex-wrap: wrap;
-
-    background-color: #171717;
-    padding: 15px;
-    border-radius: 5px;
 }
 
 .container-conteudo-videos {

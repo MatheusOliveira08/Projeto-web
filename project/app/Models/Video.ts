@@ -14,6 +14,15 @@ export default class Video extends BaseModel {
   @column()
   public link: string
 
+  @column()
+  public views: number
+
+  @column()
+  public likes: number
+
+  @column()
+  public dislikes: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

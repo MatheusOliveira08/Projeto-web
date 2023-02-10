@@ -87,8 +87,11 @@ export default class VideosController {
 
     public async show ({ view, params }: HttpContextContract){
         const id = params.id
-        //const video = VideosController.videos.values[id]
         const video = await Video.findOrFail(id)
+
+        video.views += 1
+
+        await video.save()
 
         return view.render('videos/show', { video: video })
     }
