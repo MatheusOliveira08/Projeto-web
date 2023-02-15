@@ -7,7 +7,7 @@
     <meta name="description" content="A nova plataforma de vídeos estudantis">
     <link rel="stylesheet" type="text/css" href="/css/baseStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/homeStyle.css">
-    <link rel="stylesheet" type="text/css" href="/css/showLoggedStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/showStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/menuLateral.css">
     <title> Vídeos - SlayDios </title>
 </head>
@@ -44,6 +44,18 @@
             <div class="show">
                 <h2 class="text">{{ video.titulo }}</h2>
                 <h3 class="text">{{ video.description }}</h3>
+            </div>
+            <div class="video-bottom-interations">
+                <div class="like-dislike">
+                    <button onclick="like()" type="button" class="btn-like">
+                        <img id="likeImg" class="img-like-dislike" src="{{ asset('assets/images/icons/like.svg') }}">
+                        <span>{{video.likes}}</span>
+                    </button>
+                    <button type="button" class="btn-dislike">
+                        <img class="img-like-dislike" src="{{ asset('assets/images/icons/dislike.svg') }}">
+                    </button>
+                </div>
+                <h2> Vizualizações: {{video.views}}</h2>
             </div>
         </div> 
     </div>
