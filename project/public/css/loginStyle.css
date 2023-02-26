@@ -183,3 +183,8 @@ body {
   font-size: 21px;
 }
 
+.column{
+  display: flex;
+  flex-flow: column;
+}
+

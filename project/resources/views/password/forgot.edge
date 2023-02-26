@@ -1,0 +1,22 @@
+@layout('Layouts/auth')
+@set('titulo', 'SlayDios')
+
+@section('body')
+
+ <div class = 'column'> 
+    {{inspect(flashMessages.all())}}
+
+    <h1> Altere sua senha: </h1>
+    <p> 
+       Insira seu email abaixo e te mandaremos um link para alterar sua senha. 
+    </p>
+
+    <form method = 'POST' action = '{{ route('password.send') }}'> 
+       <input type = 'email' name = 'email' placeholder = 'Insira seu Email' /> 
+       <button type = 'submit'> 
+        Altere sua senha
+       </button>
+    </form>
+ </div>
+
+@endsection
