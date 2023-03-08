@@ -96,34 +96,23 @@
                 <button type="button"> AdonisJs </button>
                 <button type="button"> Outros </button>    
             </section>
-            <!--<fieldset>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colspan="2"> Vídeos :  Introdução a Web </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        each(item in videos)
-                            <tr>
-                                <td> <a href="{ route('videos.show', { id: item.id }) }}"> {item.titulo} </a> </td>
-                                <td> {item.description}} </td>
-                                <td> <a href="{ route('videos.destroy', { id: item.id }) }}"> deletar</a> </td>
-                            </tr>
-                        end
-                    </tbody>
-                </table>
-            </fieldset> -->
         </div>
         <div class="conteudo-videos">
             <section class="section-conteudo-videos">
                 <article class="container-conteudo-videos">
                     @each(item in videos)
-                        <a href="{{ route('videos.showLogged', { id: item.id }) }}" class="thumbnail" data-duration="12:24">
-                            <img src="https://i.ytimg.com/vi/GifM_HTXf9Y/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCRPag58C6LftwCxnL65BTiG8Hc4g">
-                        </a>
-                        <td> {{item.description}} </td>
-                        <td> <a class="button" href="{{ route('videos.destroy', { id: item.id }) }}"> deletar</a> </td>
+                        <div class="videos">
+                            <a href="{{ route('videos.showLogged', { id: item.id }) }}" class="thumbnail">
+                                <img src="https://i.ytimg.com/vi/GifM_HTXf9Y/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCRPag58C6LftwCxnL65BTiG8Hc4g">
+                            </a>
+                            <div class="conteudo-videos-details">
+                                <a class="video-description" href="{{ route('videos.show', { id: item.id }) }}"> {{item.description}} </a>
+                                <div class="video-metadados">
+                                    <span class="video-views"> {{item.views}} views </span>
+                                    <a class="video-delete" href="{{ route('videos.destroy', { id: item.id }) }}"> deletar</a>
+                                </div>
+                            </div>
+                        </div>
                     @end
                 </article>   
             </section>

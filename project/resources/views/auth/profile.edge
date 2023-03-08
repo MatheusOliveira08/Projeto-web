@@ -5,21 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content=" Entre para o SlayDios e faça parte da nova plataforma de vídeos estudantis">
+    <link rel="stylesheet" type="text/css" href="/css/editProfileStyle.css"> 
     <title> Meu perfil </title>
 </head>
 <body>
 
-    <a  href="{{ route('auth.edit') }}">Editar Perfil</a>
-    <a  href="{{ route('videos.admin') }}">Voltar para os Vídeos</a>
-    <a  href="{{ route('auth.delete', { id: auth.user.id } ) }}">Excluir Perfil</a>
+    <header>
+        <div class="cabecalho-start">
+            <input class="input-menu-lateral" onclick="abrirMenu()" id="check" type="checkbox">
+            <label class="label-menu-lateral" for="check">
+                <img class="img-menu-lateral" src="{{ asset('assets/images/icons/menu.svg') }}">
+            </label>
+            <a class="ancora-logo" href="{{ route('videos.admin')}}"> <img class="cabecalho-logo" src="{{ asset('assets/images/img/logo.png') }}"> </a>
+        </div>
+        @if(auth.isLoggedIn)
+            <div class="cabecalho-menu">
+                <img class="user-img" onclick="openMenu()" src="{{ asset('assets/images/icons/user.svg') }}"> 
+                <div id="subMenu" class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <h3>{{auth.user.user}}</h3>
+                            <!--<a class="cabecalho-menu-link" href="{ route('auth.destroy') }}"> Logout </a>-->
+                            <!--<a class="cabecalho-menu-link" href="{ route('videos.create') }}"> Adicionar Vídeos </a>-->
+                        </div>
+                        <hr>
+                        <a class="sub-menu-link" href="{{ route('auth.profile') }}"> 
+                            <img src="{{ asset('assets/images/icons/editProfile.svg') }}">  
+                            <p>Editar Perfil</p>
+                            <span>></span>
+                        </a>
+                        <a class="sub-menu-link" href="{{ route('videos.create') }}"> 
+                            <img src="{{ asset('assets/images/icons/upload.svg') }}">
+                            <p>Adicionar Vídeos</p>
+                            <span>></span>
+                        </a>
+                        <a class="sub-menu-link" href="{{ route('auth.destroy') }}"> 
+                            <img src="{{ asset('assets/images/icons/logout.svg') }}">
+                            <p>Sair</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+            </div>        
+        @end
+    </header>
+    <div class="main">
+        <a  href="{{ route('auth.edit') }}">Editar Perfil</a>
+        <a  href="{{ route('videos.admin') }}">Voltar para os Vídeos</a>
+        <a  href="{{ route('auth.delete', { id: auth.user.id } ) }}">Excluir Perfil</a>
 
 
-    <p> E-mail: {{auth.user.email}} </p>
-    <p> Usuário: {{auth.user.user}} </p>
-    <p> Senha: Para alterar sua senha, clique em editar perfil </p>
-    
-
-    
-    
+        <p> E-mail: {{auth.user.email}} </p>
+        <p> Usuário: {{auth.user.user}} </p>
+        <p> Senha: Para alterar sua senha, clique em editar perfil </p>
+    </div> 
+       
 </body>
 </html>
