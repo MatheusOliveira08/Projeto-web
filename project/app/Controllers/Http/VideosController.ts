@@ -98,13 +98,18 @@ export default class VideosController {
 
     public async showLogged ({ view, params, auth }: HttpContextContract){
         const id = params.id
-        //const video = VideosController.videos.values[id]
         const video = await Video.findOrFail(id)
         const user = auth.user?.id
+        const username = auth.user?.user
+
+        video.views += 1
+        await video.save()
 
         await VideoHistory.create({
             userId: user,
-            videoId: id
+            videoId: id,
+            username: username,
+            titulo: video.titulo
         })
 
         return view.render('videos/showLogged', { video: video })
@@ -114,14 +119,13 @@ export default class VideosController {
         const video = await Video.findOrFail(params.id)
         await video.delete()
         return response.redirect().toRoute('videos.admin')
-      }
+    }
 
-    public async hist({ view , auth}: HttpContextContract){
+    public async hist({ view }: HttpContextContract){
         const history = await VideoHistory.all() 
         //const user = auth.user?.id
         //const videos = await Video.all()
 
         return view.render('videos/history', { history: history })
     } 
-
-}
+}    

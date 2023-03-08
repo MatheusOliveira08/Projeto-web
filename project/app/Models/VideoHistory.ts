@@ -11,6 +11,12 @@ export default class VideoHistory extends BaseModel {
   @column()
   public userId: number
 
+  @column()
+  public titulo: string
+
+  @column()
+  public username: string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 }

@@ -34,6 +34,11 @@ Route.get('/videos/:id', 'VideosController.show').as('videos.show').where('id', 
 Route.get('/videosLog/:id', 'VideosController.showLogged').as('videos.showLogged').where('id', Route.matchers.number())
 Route.get('/videos/:id/delete', 'VideosController.destroy').as('videos.destroy').where('id', Route.matchers.number())
 
+Route.get('/password/forgot', 'PasswordResetController.forgot').as('password.forgot')
+Route.post('/password/send', 'PasswordResetController.send').as('password.send')
+Route.get('/password/reset/:token', 'PasswordResetController.reset').as('password.reset')
+Route.post('/password/store', 'PasswordResetController.store').as('password.store')
+
 Route.group(() => {
     Route.get('/videos/user', 'VideosController.telaUser').as('videos.user')
     Route.get('/videos/admin', 'VideosController.telaAdmin').as('videos.admin')

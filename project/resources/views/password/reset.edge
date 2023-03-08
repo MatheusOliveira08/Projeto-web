@@ -1,0 +1,34 @@
+@layout('Layouts/auth')
+@set('titulo', 'SlayDios')
+
+@section('body')
+
+ <div class = 'column'> 
+
+    <h1> Altere sua senha: </h1>
+
+    @if (isValid)
+        <p> 
+            Insira sua nova senha abaixo
+        </p>
+
+        <form method = 'POST' action = '{{ route('password.store') }}'> 
+            <input type = 'hidden' name = 'token' value = '{{ token }}' />
+            <input type = 'password' name = 'password' placeholder = 'Insira sua nova senha' /> 
+            <button type = 'submit'> 
+             Altere sua senha
+            </button>
+         </form>
+    @else
+        <h1> Token inválido </h1>
+        <p> 
+            O token que você está tentando usar é inválido ou expirou. 
+            <a href = '{{ route('password.forgot') }}'> Solicite um novo token </a>
+        </p>
+
+    @endif
+
+
+ </div>
+
+@endsection
