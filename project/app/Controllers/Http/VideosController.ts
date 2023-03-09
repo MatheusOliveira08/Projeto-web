@@ -40,13 +40,13 @@ export default class VideosController {
             titulo: schema.string({ trim: true }, [
                 rules.minLength(3),
                 rules.maxLength(30),
-                rules.regex(/^[a-zA-Z0-9-_ ]+$/),
+                rules.regex(/^[a-zA-Z0-9-_  ^çáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+$/),
                 rules.unique({ table: 'videos', column: 'titulo' })
             ]),
             description: schema.string({ trim: true }, [ 
                 rules.minLength(1),
                 rules.maxLength(50),
-                rules.regex(/^[a-zA-Z0-9-_ ]+$/)]),
+                rules.regex(/^[a-zA-Z0-9-_  ^çáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ]+$/)]),
             link: schema.string({ trim: true }, [/*rules.regex(/^[a-zA-Z0-9-_]+$/)*/]),
         })
 
@@ -66,6 +66,7 @@ export default class VideosController {
 
                 'link.required': 'O campo link é obrigatório',
                 'link.regex': 'O campo link deve ser do youtube e deve conter embed',
+
             }
         })
 
