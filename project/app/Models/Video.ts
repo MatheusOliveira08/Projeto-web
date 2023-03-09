@@ -6,6 +6,9 @@ export default class Video extends BaseModel {
   public id: number
 
   @column()
+  public user_id: number
+
+  @column()
   public titulo: string
 
   @column()

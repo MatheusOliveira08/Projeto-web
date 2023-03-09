@@ -109,7 +109,11 @@
                                 <a class="video-description" href="{{ route('videos.show', { id: item.id }) }}"> {{item.description}} </a>
                                 <div class="video-metadados">
                                     <span class="video-views"> {{item.views}} views </span>
-                                    <a class="video-delete" href="{{ route('videos.destroy', { id: item.id }) }}"> deletar</a>
+                                    @if(auth.user.id == item.user_id)   
+                                        <a class="video-delete" href="{{ route('videos.destroy', { id: item.id }) }}"> deletar</a>
+                                    @else
+                                        <p></p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

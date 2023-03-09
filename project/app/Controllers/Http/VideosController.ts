@@ -2,7 +2,6 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Video from 'App/Models/Video'
 import { schema, rules } from '@ioc:Adonis/Core/Validator'
 import VideoHistory from 'App/Models/VideoHistory'
-import User from 'App/Models/User'
 
 export default class VideosController {
 
@@ -35,7 +34,7 @@ export default class VideosController {
         return view.render('videos/create')
     }
 
-    public async store ({ response, request }: HttpContextContract) {
+    public async store ({ response, request, auth }: HttpContextContract) {
 
         const videoSchema = schema.create({
             titulo: schema.string({ trim: true }, [
@@ -78,7 +77,8 @@ export default class VideosController {
         await Video.create({
             titulo: titulo,
             description: description,
-            link: link
+            link: link,
+            user_id: auth.user?.id
         })
 
 
@@ -115,7 +115,7 @@ export default class VideosController {
         return view.render('videos/showLogged', { video: video })
     }
 
-    public async destroy({ params, response }: HttpContextContract) {
+    public async destroy({ params, response,  }: HttpContextContract) {
         const video = await Video.findOrFail(params.id)
         await video.delete()
         return response.redirect().toRoute('videos.admin')

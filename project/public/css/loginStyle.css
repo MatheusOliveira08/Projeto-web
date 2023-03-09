@@ -183,6 +183,27 @@ body {
   font-size: 21px;
 }
 
+.btn-forgot{
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  padding: 12px 18px;
+  margin: 40px 0px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 800;
+  font-size: 5pt;
+  color: #2b134b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #584eeb;
+  cursor: pointer;
+  box-shadow: 0px 10px 50px -12px #0088ff52;
+  font-family: sans-serif;
+  font-size: 21px;
+}
+
 .column{
   display: flex;
   flex-flow: column;
