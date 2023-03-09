@@ -78,7 +78,8 @@ export default class VideosController {
             titulo: titulo,
             description: description,
             link: link,
-            user_id: auth.user?.id
+            user_id: auth.user?.id,
+            views: 0
         })
 
 

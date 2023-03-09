@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/css/menuLateral.css">
     <link rel="stylesheet" type="text/css" href="/css/menuDropStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/editProfileStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/delProfStyle.css">
     <title> Meu perfil </title>
 </head>
 <body>
@@ -29,8 +30,6 @@
                     <div class="sub-menu">
                         <div class="user-info">
                             <h3>{{auth.user.user}}</h3>
-                            <!--<a class="cabecalho-menu-link" href="{ route('auth.destroy') }}"> Logout </a>-->
-                            <!--<a class="cabecalho-menu-link" href="{ route('videos.create') }}"> Adicionar Vídeos </a>-->
                         </div>
                         <hr>
                         <a class="sub-menu-link" href="{{ route('auth.profile') }}"> 
@@ -63,6 +62,48 @@
         <hr class="hr-2">
     </nav>
 
+    <!--<section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="{ route('auth.delete', { id: auth.user.id }) }}" method="POST">
+                    <h2>Confirme seus dados</h2>
+                    <div class="inputbox">
+                        <img src="{ asset('assets/images/icons/email.svg') }}">
+                        <input type="email" name="email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <img src="{ asset('assets/images/icons/lock.svg') }}">
+                        <input type="password" name="password" required>
+                        <label for="password">Senha</label>
+                    </div>
+                    <button onclick="certeza()" class="btn-login"> Enviar </button>
+                </form>
+            </div>
+        </div>
+    </section> -->
+
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="{{ route('auth.delete', { id: auth.user.id }) }}" method="POST">
+                    <h2>Confirmar</h2>
+                    <div class="inputbox">
+                        <img src="{{ asset('assets/images/icons/email.svg') }}">
+                        <input type="email" name="email" required>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <img src="{{ asset('assets/images/icons/lock.svg') }}">
+                        <input type="password" name="password" required>
+                        <label for="">Senha</label>
+                    </div>
+                    <button>Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <script>
         let subMenu = document.getElementById('subMenu');
         function openMenu() {
@@ -80,7 +121,7 @@
             if(window.confirm("Deseja excluir seu perfil ?")){
                 window.location.href = '{{ route('auth.edit') }}'
             }
-        }  
+        } 
     </script>
 
 </body>

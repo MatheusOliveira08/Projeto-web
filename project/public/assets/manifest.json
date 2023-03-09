@@ -16,5 +16,8 @@
   "assets/images/icons/upload.svg": "http://localhost:8080/assets/images/icons/upload.e080c1f5.svg",
   "assets/images/icons/close.svg": "http://localhost:8080/assets/images/icons/close.fd23750d.svg",
   "assets/images/icons/historic.svg": "http://localhost:8080/assets/images/icons/historic.c4b460f8.svg",
-  "assets/images/icons/menu.svg": "http://localhost:8080/assets/images/icons/menu.8e12d383.svg"
+  "assets/images/icons/menu.svg": "http://localhost:8080/assets/images/icons/menu.8e12d383.svg",
+  "assets/images/icons/email.svg": "http://localhost:8080/assets/images/icons/email.e3a3e05f.svg",
+  "assets/images/icons/lock.svg": "http://localhost:8080/assets/images/icons/lock.f749ae49.svg",
+  "assets/images/img/background6.jpg": "http://localhost:8080/assets/images/img/background6.9bda1a83.jpg"
 }

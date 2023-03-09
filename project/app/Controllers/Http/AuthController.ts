@@ -123,10 +123,18 @@ export default class AuthController {
         return view.render('auth/deleteProfile')
     }
 
-    public async delete({ params, response }: HttpContextContract) {
+    public async delete({ auth, params, response, request }: HttpContextContract) {
         const user = await User.findOrFail(params.id)
-        await user.delete()
-        return response.redirect().toRoute('videos.index')
+        const email = request.input('email')
+        const password = request.input('password')
+
+        try {
+            await auth.use('web').attempt(email, password)
+            await user.delete()
+            return response.redirect().toRoute('videos.index')
+          } catch {
+            throw new Exception('Credenciais erradas, tente novamente')
+          }
     }
 
 }

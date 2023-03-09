@@ -1,20 +1,88 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Conteúdo do Canal - SlayDios </title>
+    <link rel="stylesheet" type="text/css" href="/css/baseStyle.css"> 
+    <link rel="stylesheet" type="text/css" href="/css/homeStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/menuLateral.css">
+    <link rel="stylesheet" type="text/css" href="/css/menuDropStyle.css">
     <link rel="stylesheet" type="text/css" href="/css/createVideosStyle.css">
+    <title> Conteúdo do Canal - SlayDios </title>
 </head>
 <body>
-    <header> <h1>SlayDios</h1> </header>
+
+    <header id="cabecalho" class="cabecalho">
+        <div class="cabecalho-start">
+            <input class="input-menu-lateral" onclick="abrirMenu()" id="check" type="checkbox">
+            <label class="label-menu-lateral" for="check">
+                <img class="img-menu-lateral" src="{{ asset('assets/images/icons/menu.svg') }}">
+            </label>
+            <a class="ancora-logo" href="{{ route('videos.admin')}}"> <img class="cabecalho-logo" src="{{ asset('assets/images/img/logo.png') }}"> </a>
+        </div>
+        @if(auth.isLoggedIn)
+            <div class="cabecalho-menu">
+                <img class="user-img" onclick="openMenu()" src="{{ asset('assets/images/icons/user.svg') }}"> 
+                <div id="subMenu" class="sub-menu-wrap">
+                    <div class="sub-menu">
+                        <div class="user-info">
+                            <h3>{{auth.user.user}}</h3>
+                        </div>
+                        <hr>
+                        <a class="sub-menu-link" href="{{ route('auth.profile') }}"> 
+                            <img src="{{ asset('assets/images/icons/editProfile.svg') }}">  
+                            <p>Editar Perfil</p>
+                            <span>></span>
+                        </a>
+                        <a class="sub-menu-link" href="{{ route('videos.create') }}"> 
+                            <img src="{{ asset('assets/images/icons/upload.svg') }}">
+                            <p>Adicionar Vídeos</p>
+                            <span>></span>
+                        </a>
+                        <a class="sub-menu-link" href="{{ route('auth.destroy') }}"> 
+                            <img src="{{ asset('assets/images/icons/logout.svg') }}">
+                            <p>Sair</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+            </div>        
+        @end
+    </header>
+
+    <nav id="menu" class="nav-menu-lateral">
+        <a class="menu-lateral-link" onclick="fecharMenu()" href="#"> <img src="{{ asset('assets/images/icons/close.svg') }}"> Fechar </a>  
+        <hr class="hr-1">
+        <a class="menu-lateral-link" href="{{ route('videos.admin')}}"> <img src="{{ asset('assets/images/icons/home.svg') }}"> Início </a> 
+        <a class="menu-lateral-link" href="#"> <img src="{{ asset('assets/images/icons/library.svg') }}"> Biblioteca </a> 
+        <a class="menu-lateral-link" href="{{ route('videos.hist')}}"> <img src="{{ asset('assets/images/icons/historic.svg') }}"> Histórico  </a>
+        <hr class="hr-2">
+    </nav>
+
+    <!--<section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="{ route('auth.delete', { id: auth.user.id }) }}" method="POST">
+                    <h2>Adicionar Vídeo</h2>
+                    <div class="inputbox">
+                        <img src="{ asset('assets/images/icons/email.svg') }}">
+                        <input type="email" name="email" required>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <img src="{ asset('assets/images/icons/lock.svg') }}">
+                        <input type="password" name="password" required>
+                        <label for="">Senha</label>
+                    </div>
+                    <button>Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section> -->
 
     <div class="main">
-        <div class="left">
-            <h1> Adicione Novos Vídeos ao <i>Slaydios</i> </h1>
-        </div>
-        <div class="right">
+        <div class="create">
             <div class="card-create">  
                 <h1> Adicionar Vídeo </h1>  
                 <form action="{{ route('videos.store')}}" method="POST" class="form-create-videos">
@@ -50,6 +118,21 @@
             </div>
         </div>
     </div>
+
+    <script>
+        let subMenu = document.getElementById('subMenu');
+        function openMenu() {
+            subMenu.classList.toggle("open-menu");
+        }
+        function abrirMenu(){
+            document.getElementById('menu').style.width = '250px';
+            document.getElementById('conteudo').style.marginLeft = '250px';
+        }
+        function fecharMenu(){
+            document.getElementById('menu').style.width = '0';
+            document.getElementById('conteudo').style.marginLeft = '0';
+        } 
+    </script>
     
 </body>
 </html>
