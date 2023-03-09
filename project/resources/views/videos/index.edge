@@ -57,7 +57,7 @@
                     @each(item in videos)
                         <div class="videos">
                             <a href="{{ route('videos.show', { id: item.id }) }}" class="thumbnail">
-                                <img src="https://i.ytimg.com/vi/GifM_HTXf9Y/hqdefault.jpg?sqp=-oaymwEjCPYBEIoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCRPag58C6LftwCxnL65BTiG8Hc4g">
+                                <img src="{{ asset('assets/images/img/SlaydiosThumb.png') }}">
                             </a>
                             <div class="conteudo-videos-details">
                                 <a class="video-description" href="{{ route('videos.show', { id: item.id }) }}"> {{item.description}} </a>

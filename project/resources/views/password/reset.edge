@@ -1,24 +1,36 @@
 @layout('Layouts/auth')
 @set('titulo', 'SlayDios')
 
+@section('style')
+    <link rel="stylesheet" type="text/css" href="/css/baseStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/forgetStyle.css"> 
+@end
+
+@section('header')
+   <header class="cabecalho">
+      <a class="ancora-logo" href="{{ route('videos.index')}}"> <img class="cabecalho-logo" src="{{ asset('assets/images/img/logo.png') }}"> </a>
+   </header>
+@end
+
 @section('body')
 
- <div class = 'column'> 
+    <div class = 'column'> 
 
     <h1> Altere sua senha: </h1>
 
     @if (isValid)
-        <p> 
-            Insira sua nova senha abaixo
-        </p>
-
-        <form method = 'POST' action = '{{ route('password.store') }}'> 
-            <input type = 'hidden' name = 'token' value = '{{ token }}' />
-            <input type = 'password' name = 'password' placeholder = 'Insira sua nova senha' /> 
-            <button type = 'submit'> 
-             Altere sua senha
-            </button>
-         </form>
+        <h3>Insira sua nova senha abaixo</h3>
+        <div class="form-box">
+            <form method = "POST" action = "{{ route('password.store') }}"> 
+                <div class="inputbox">
+                    <img src="{{ asset('assets/images/icons/lock.svg') }}">
+                    <input type = 'hidden' name = 'token' value = '{{ token }}' />
+                    <input type = 'password' name = 'password' required>
+                    <label for="">Senha</label> 
+                </div>
+                <button class="reset-btn" type = 'submit'> Altere sua senha </button>
+            </form>
+        </div>
     @else
         <h1> Token inválido </h1>
         <p> 
@@ -29,6 +41,6 @@
     @endif
 
 
- </div>
+    </div>
 
 @endsection
