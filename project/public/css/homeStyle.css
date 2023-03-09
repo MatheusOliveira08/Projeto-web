@@ -80,7 +80,8 @@ main {
 }
 
 .conteudo-videos { 
-    background-color: #171717;    
+    background-color: #171717; 
+    border-radius: 5px;   
 }
 
 /*.conteudo-videos {
@@ -104,7 +105,6 @@ main {
     display: flex;
     flex-wrap: wrap;
     padding: 15px;
-    border-radius: 5px;
 }
 
 .section-conteudo-videos:first-child {

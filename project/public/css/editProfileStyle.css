@@ -1,20 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
-    font-family: 'Noto Sans', sans-serif;
-}
-
-body {
-    font-size: 100%;
+.main-edit-profile {
     width: 100%;
     height: 100%;
-    background-color: #0F0F0F;
-    overflow-x: hidden;
+    padding: 25px 30px;
+    transition: margin-left 0.5s;
 }
+
+.edit-profile {
+    cursor: pointer;
+    color: rgb(255, 0, 60);
+}
+
+.edit-profile:hover {
+    text-decoration: underline;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.user-info p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    color: aliceblue;
+}
+
+.edit {
+    width: 45px;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
 

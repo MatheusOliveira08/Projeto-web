@@ -89,10 +89,6 @@ export default class VideosController {
         const id = params.id
         const video = await Video.findOrFail(id)
 
-        video.views += 1
-
-        await video.save()
-
         return view.render('videos/show', { video: video })
     }
 
@@ -128,4 +124,5 @@ export default class VideosController {
 
         return view.render('videos/history', { history: history })
     } 
+
 }    

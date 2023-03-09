@@ -1,6 +1,12 @@
 @layout('Layouts/auth')
 @set('titulo', 'Entre no SlayDios')
 
+@section('header')
+    <header class="cabecalho">
+        <a class="ancora-logo" href="{{ route('videos.index')}}"> <img class="cabecalho-logo" src="{{ asset('assets/images/img/logo.png') }}"> </a>
+    </header>
+@end
+
 @section('body')
     <section>
     <div class="main-login">

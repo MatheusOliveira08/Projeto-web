@@ -63,18 +63,6 @@
         <hr class="hr-2">
     </nav>
 
-    <div class="main-edit-profile" id="conteudo">
-        <div class="user-info">
-            <p> E-mail: {{auth.user.email}} <a class="edit" href="{{ route('auth.edit') }}"> <img src="{{ asset('assets/images/icons/editProfile.svg') }}"> </a> </p>
-            <p> Usuário: {{auth.user.user}} <a class="edit" href="{{ route('auth.edit') }}"> <img src="{{ asset('assets/images/icons/editProfile.svg') }}"> </a> </p>
-            <p> Senha: Editar senha <a class="edit" href="{{ route('auth.edit') }}"> <img src="{{ asset('assets/images/icons/editProfile.svg') }}"> </a> </p>
-        </div>
-        <div class="edit-profile">
-            <a onclick="excluir()" >Excluir Perfil</a>
-            <!-- href="{ route('auth.delete', { id: auth.user.id } ) }}" -->
-        </div>
-    </div> 
-
     <script>
         let subMenu = document.getElementById('subMenu');
         function openMenu() {
@@ -90,10 +78,10 @@
         }
         function excluir(){
             if(window.confirm("Deseja excluir seu perfil ?")){
-                window.location.href = '{{ route('auth.delProf') }}'
+                window.location.href = '{{ route('auth.edit') }}'
             }
         }  
     </script>
-       
+
 </body>
 </html>
